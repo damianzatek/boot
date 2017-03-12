@@ -28,7 +28,7 @@ public class SpringHibernateMain {
 		personDAO.list().forEach(System.out::println);
 
 		Invoice invoice = new Invoice();
-		invoice.setData_faktury("12.12.2017");
+		invoice.setData_faktury("13.12.2017");
 		invoice.setNr_faktury("112/we/13");
 		invoice.setPodatek(23);
 		invoice.setWartosc_netto(1222);

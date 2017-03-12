@@ -19,13 +19,26 @@ public class PersonDAOImpl implements PersonDAO {
         this.sessionFactory = sessionFactory;
     }
     
-	public void save(Person p) {
+	public Person save(Person p) {
 		Session session = this.sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		session.persist(p);
 		tx.commit();
 		session.close();
+		return p;
 	}
+	
+	public Person selectById(int idUzytkownika){
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Person p= (Person) session.get(Person.class, idUzytkownika);
+		tx.commit();
+		session.close();
+		return p;
+	}
+	
+	
+	
 
 	@SuppressWarnings("unchecked")
 	public List<Person> list() {

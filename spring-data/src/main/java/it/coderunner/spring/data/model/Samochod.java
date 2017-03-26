@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class City implements Serializable {
+public class Samochod implements Serializable {
 
-	private static final long serialVersionUID = -7901094204949006825L;
+	private static final long serialVersionUID = -7901094204949006826L;
 
 	@Id
 	@GeneratedValue
@@ -25,11 +25,15 @@ public class City implements Serializable {
 	private String name;
 
 	@Column(nullable = false)
-	private String country;
+	private String type;
 	
-	public City(String name, String country){
+	@Column(nullable = false)
+	private String color;
+	
+	public Samochod(String name, String type, String color){
 		this.name = name;
-		this.country = country;
+		this.type = type;
+		this.color=color;
 	}
 
 }

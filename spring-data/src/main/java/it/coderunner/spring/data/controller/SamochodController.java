@@ -38,7 +38,7 @@ public class SamochodController {
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{name}")
+	@GetMapping("/get/top10/{color}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String color) {
 		List<Samochod> samochody = samochodService.findFirst10ByColor(color);
 		samochody.stream().forEach(System.out::println);
@@ -47,7 +47,7 @@ public class SamochodController {
 				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/all/{page}/{size}")
+	@GetMapping("/get/allsam/{page}/{size}")
 	public @ResponseBody Page<Samochod> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return samochodService.findAll(new PageRequest(page, size));
 	}

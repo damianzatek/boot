@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.coderunner.spring.data.model.Samochod;
 
-public interface SamochodRepository extends CrudRepository<SamochodRepository, Long>{
+public interface SamochodRepository extends CrudRepository<Samochod, Long>{
 	
 	Page<Samochod> findAll(Pageable pageable);
 
@@ -20,7 +20,6 @@ public interface SamochodRepository extends CrudRepository<SamochodRepository, L
 	List<Samochod> findFirst10ByColor(String color);
 	
 	@SuppressWarnings("unchecked")
-	
 	Samochod save(Samochod samochod);
 
 }

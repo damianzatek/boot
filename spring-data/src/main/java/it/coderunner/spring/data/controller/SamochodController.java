@@ -31,7 +31,7 @@ public class SamochodController {
 	}
 
 	@GetMapping("/save/samochod/{name}/{type}/{color}")
-	public @ResponseBody ResponseEntity<String> savesamochod(@PathVariable String name,
+	public @ResponseBody ResponseEntity<String> saveSamochod(@PathVariable String name,
 			@PathVariable String type, @PathVariable String color) {
 		Samochod samochod = samochodService.save(new Samochod(name, type, color));
 		return samochod != null ? new ResponseEntity<String>("GET Response : " + samochod, HttpStatus.OK)

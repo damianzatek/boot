@@ -20,6 +20,7 @@ public interface SamochodRepository extends CrudRepository<SamochodRepository, L
 	List<Samochod> findFirst10ByColor(String color);
 	
 	@SuppressWarnings("unchecked")
-	Samochod save(Samochod Samochod);
+	
+	Samochod save(Samochod samochod);
 
 }

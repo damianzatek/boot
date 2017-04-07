@@ -12,7 +12,7 @@ public interface SamochodService extends Serializable{
 
 	Samochod findByNameAndTypeAndColorAllIgnoringCase(String name, String type,String color);
 
-	Samochod save(Samochod Samochod);
+	Samochod save(Samochod samochod);
 	
 	List<Samochod> findFirst10ByColor(String color);
 	

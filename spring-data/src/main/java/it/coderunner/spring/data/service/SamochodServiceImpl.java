@@ -25,8 +25,8 @@ public class SamochodServiceImpl implements SamochodService{
 	}
 
 	@Override
-	public Samochod save(Samochod Samochod) {
-		return samochodRepository.save(Samochod);
+	public Samochod save(Samochod samochod) {
+		return samochodRepository.save(samochod);
 	}
 
 	@Override

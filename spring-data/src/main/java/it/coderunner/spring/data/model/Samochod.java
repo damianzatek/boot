@@ -33,7 +33,7 @@ public class Samochod implements Serializable {
 	public Samochod(String name, String type, String color){
 		this.name = name;
 		this.type = type;
-		this.color=color;
+		this.color = color;
 	}
 
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Samochod implements Serializable {
+public class Kontrakt implements Serializable {
 
 	private static final long serialVersionUID = -7901094204949006826L;
 
@@ -22,18 +22,18 @@ public class Samochod implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
-	private String name;
+	private String nrkontraktu;
 
 	@Column(nullable = false)
-	private String type;
+	private String dataotwarcia;
 	
 	@Column(nullable = false)
-	private String color;
+	private String terminzakonczenia;
 	
-	public Samochod(String name, String type, String color){
-		this.name = name;
-		this.type = type;
-		this.color = color;
+	public Kontrakt(String nrkontraktu, String dataotwarcia, String terminzakonczenia){
+		this.nrkontraktu = nrkontraktu;
+		this.dataotwarcia = dataotwarcia;
+		this.terminzakonczenia = terminzakonczenia;
 	}
 
 }

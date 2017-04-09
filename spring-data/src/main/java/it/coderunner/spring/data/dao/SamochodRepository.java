@@ -6,20 +6,20 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
-import it.coderunner.spring.data.model.Samochod;
+import it.coderunner.spring.data.model.Kontrakt;
 
-public interface SamochodRepository extends CrudRepository<Samochod, Long>{
+public interface SamochodRepository extends CrudRepository<Kontrakt, Long>{
 	
-	Page<Samochod> findAll(Pageable pageable);
+	Page<Kontrakt> findAll(Pageable pageable);
 
-	Page<Samochod> findByNameContainingAndTypeContainingAndColorContainingAllIgnoringCase(String name,
+	Page<Kontrakt> findByNameContainingAndTypeContainingAndColorContainingAllIgnoringCase(String name,
 			String type,String color, Pageable pageable);
 
-	Samochod findByNameAndTypeAndColorAllIgnoringCase(String name, String type,String color);
+	Kontrakt findByNameAndTypeAndColorAllIgnoringCase(String name, String type,String color);
 	
-	List<Samochod> findFirst10ByColor(String color);
+	List<Kontrakt> findFirst10ByColor(String color);
 	
 	@SuppressWarnings("unchecked")
-	Samochod save(Samochod samochod);
+	Kontrakt save(Kontrakt samochod);
 
 }

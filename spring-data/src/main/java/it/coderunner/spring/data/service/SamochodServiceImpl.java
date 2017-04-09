@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import it.coderunner.spring.data.dao.SamochodRepository;
-import it.coderunner.spring.data.model.Samochod;
+import it.coderunner.spring.data.model.Kontrakt;
 
 @Service
 public class SamochodServiceImpl implements SamochodService{
@@ -20,22 +20,22 @@ public class SamochodServiceImpl implements SamochodService{
 	private SamochodRepository samochodRepository;
 
 	@Override
-	public Samochod findByNameAndTypeAndColorAllIgnoringCase(String name, String type, String color) {
+	public Kontrakt findByNameAndTypeAndColorAllIgnoringCase(String name, String type, String color) {
 		return samochodRepository.findByNameAndTypeAndColorAllIgnoringCase(name, type, color) ;
 	}
 
 	@Override
-	public Samochod save(Samochod samochod) {
+	public Kontrakt save(Kontrakt samochod) {
 		return samochodRepository.save(samochod);
 	}
 
 	@Override
-	public List<Samochod> findFirst10ByColor(String color) {
+	public List<Kontrakt> findFirst10ByColor(String color) {
 		return samochodRepository.findFirst10ByColor(color);
 	}
 
 	@Override
-	public Page<Samochod> findAll(Pageable pageable) {
+	public Page<Kontrakt> findAll(Pageable pageable) {
 		return samochodRepository.findAll(pageable);
 	}
 

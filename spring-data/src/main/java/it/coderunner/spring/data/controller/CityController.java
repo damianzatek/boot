@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.coderunner.spring.data.model.City;
+import it.coderunner.spring.data.model.Klient;
 import it.coderunner.spring.data.service.CityService;
 
 @Controller
@@ -24,21 +24,21 @@ public class CityController {
 	@GetMapping("/get/city/{name}/{country}")
 	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,
 			@PathVariable String country) {
-		City city = cityService.findByNameAndCountryAllIgnoringCase(name, country);
+		Klient city = cityService.findByNameAndCountryAllIgnoringCase(name, country);
 		return city != null ? new ResponseEntity<String>("GET Response : " + city, HttpStatus.OK)
 				: new ResponseEntity<String>("No city found", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/save/city/{name}/{country}")
 	public @ResponseBody ResponseEntity<String> saveCity(@PathVariable String name, @PathVariable String country) {
-		City city = cityService.save(new City(name, country));
+		Klient city = cityService.save(new Klient(name, country));
 		return city != null ? new ResponseEntity<String>("GET Response : " + city, HttpStatus.OK)
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/get/top10/{country}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String country) {
-		List<City> cities = cityService.findFirst10ByCountry(country);
+		List<Klient> cities = cityService.findFirst10ByCountry(country);
 		cities.stream().forEach(System.out::println);
 		return cities != null && !cities.isEmpty()
 				? new ResponseEntity<String>("GET Response : " + cities, HttpStatus.OK)
@@ -46,7 +46,7 @@ public class CityController {
 	}
 
 	@GetMapping("/get/all/{page}/{size}")
-	public @ResponseBody Page<City> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
+	public @ResponseBody Page<Klient> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return cityService.findAll(new PageRequest(page, size));
 	}
 

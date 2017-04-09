@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class City implements Serializable {
+public class Klient implements Serializable {
 
 	private static final long serialVersionUID = -7901094204949006825L;
 
@@ -22,14 +22,27 @@ public class City implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
-	private String name;
+	private String login;
 
 	@Column(nullable = false)
-	private String country;
+	private String haslo;
 	
-	public City(String name, String country){
-		this.name = name;
-		this.country = country;
+	@Column(nullable = false)
+	private String imie;
+	
+	@Column(nullable = false)
+	private String nazwisko;
+	
+	@Column(nullable = false)
+	private String email;
+	
+	public Klient(String login, String haslo, String imie, String nazwisko, String email){
+		this.login = login;
+		this.haslo = haslo;
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+		this.email = email;
+		
 	}
 
 }

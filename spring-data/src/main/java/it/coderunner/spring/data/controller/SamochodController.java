@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.coderunner.spring.data.model.Samochod;
+import it.coderunner.spring.data.model.Kontrakt;
 import it.coderunner.spring.data.service.SamochodService;
 
 
@@ -25,7 +25,7 @@ public class SamochodController {
 	@GetMapping("/get/samochod/{name}/{type}/{color}")
 	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,
 			@PathVariable String type, @PathVariable String color) {
-		Samochod samochod = samochodService.findByNameAndTypeAndColorAllIgnoringCase(name, type, color);
+		Kontrakt samochod = samochodService.findByNameAndTypeAndColorAllIgnoringCase(name, type, color);
 		return samochod != null ? new ResponseEntity<String>("GET Response : " + samochod, HttpStatus.OK)
 				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
 	}
@@ -33,14 +33,14 @@ public class SamochodController {
 	@GetMapping("/save/samochod/{name}/{type}/{color}")
 	public @ResponseBody ResponseEntity<String> saveSamochod(@PathVariable String name,
 			@PathVariable String type, @PathVariable String color) {
-		Samochod samochod = samochodService.save(new Samochod(name, type, color));
+		Kontrakt samochod = samochodService.save(new Kontrakt(name, type, color));
 		return samochod != null ? new ResponseEntity<String>("GET Response : " + samochod, HttpStatus.OK)
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/get/top10/{color}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String color) {
-		List<Samochod> samochody = samochodService.findFirst10ByColor(color);
+		List<Kontrakt> samochody = samochodService.findFirst10ByColor(color);
 		samochody.stream().forEach(System.out::println);
 		return samochody != null && !samochody.isEmpty()
 				? new ResponseEntity<String>("GET Response : " + samochody, HttpStatus.OK)
@@ -48,7 +48,7 @@ public class SamochodController {
 	}
 
 	@GetMapping("/get/allsam/{page}/{size}")
-	public @ResponseBody Page<Samochod> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
+	public @ResponseBody Page<Kontrakt> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return samochodService.findAll(new PageRequest(page, size));
 	}
 

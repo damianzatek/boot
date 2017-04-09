@@ -6,16 +6,16 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import it.coderunner.spring.data.model.City;
+import it.coderunner.spring.data.model.Klient;
 
 public interface CityService extends Serializable{
 
-	City findByNameAndCountryAllIgnoringCase(String name, String country);
+	Klient findByNameAndCountryAllIgnoringCase(String name, String country);
 
-	City save(City city);
+	Klient save(Klient city);
 	
-	List<City> findFirst10ByCountry(String country);
+	List<Klient> findFirst10ByCountry(String country);
 	
-	Page<City> findAll(Pageable pageable);
+	Page<Klient> findAll(Pageable pageable);
 
 }

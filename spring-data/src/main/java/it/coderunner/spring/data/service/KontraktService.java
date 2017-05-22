@@ -8,13 +8,13 @@ import org.springframework.data.domain.Pageable;
 
 import it.coderunner.spring.data.model.Kontrakt;
 
-public interface SamochodService extends Serializable{
+public interface KontraktService extends Serializable{
 
-	Kontrakt findByNameAndTypeAndColorAllIgnoringCase(String name, String type,String color);
+	List<Kontrakt> findByName(String name);
 
-	Kontrakt save(Kontrakt samochod);
+	Kontrakt save(Kontrakt kontrakt);
 	
-	List<Kontrakt> findFirst10ByColor(String color);
+	List<Kontrakt> findFirst10ByKlient(String name);
 	
 	Page<Kontrakt> findAll(Pageable pageable);
 

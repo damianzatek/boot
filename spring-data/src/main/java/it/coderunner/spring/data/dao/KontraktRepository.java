@@ -8,18 +8,18 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.coderunner.spring.data.model.Kontrakt;
 
-public interface SamochodRepository extends CrudRepository<Kontrakt, Long>{
+public interface KontraktRepository extends CrudRepository<Kontrakt, Long>{
 	
 	Page<Kontrakt> findAll(Pageable pageable);
 
 	Page<Kontrakt> findByNameContainingAndTypeContainingAndColorContainingAllIgnoringCase(String name,
 			String type,String color, Pageable pageable);
 
-	Kontrakt findByNameAndTypeAndColorAllIgnoringCase(String name, String type,String color);
+	List<Kontrakt> findByName(String name);
 	
-	List<Kontrakt> findFirst10ByColor(String color);
+	List<Kontrakt> findFirst10ByKlient(String klient);
 	
 	@SuppressWarnings("unchecked")
-	Kontrakt save(Kontrakt samochod);
+	Kontrakt save(Kontrakt kontrakt);
 
 }

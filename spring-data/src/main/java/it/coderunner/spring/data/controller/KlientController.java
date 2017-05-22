@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.coderunner.spring.data.model.Klient;
-import it.coderunner.spring.data.service.CityService;
+import it.coderunner.spring.data.service.KsztaltownikService;
 
 @Controller
-public class CityController {
+public class KlientController {
 
 	@Autowired
-	private CityService cityService;
+	private KsztaltownikService cityService;
 
 	@GetMapping("/get/city/{name}/{country}")
 	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,

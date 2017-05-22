@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.coderunner.spring.data.model.Kontrakt;
-import it.coderunner.spring.data.service.SamochodService;
+import it.coderunner.spring.data.service.KontraktService;
 
 
 @Controller
-public class SamochodController {
+public class KsztaltownikController {
 
 	@Autowired
-	private SamochodService samochodService;
+	private KontraktService samochodService;
 
 	@GetMapping("/get/samochod/{name}/{type}/{color}")
 	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,

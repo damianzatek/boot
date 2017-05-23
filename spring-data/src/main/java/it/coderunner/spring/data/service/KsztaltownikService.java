@@ -11,11 +11,11 @@ import it.coderunner.spring.data.model.Ksztaltownik;
 
 public interface KsztaltownikService extends Serializable{
 
-	Ksztaltownik findByNazwaksztaltownikaAndKlientAllIgnoringCase(String nazwaksztaltownika, String nazwisko);
+	Ksztaltownik findByNazwaKsztaltownika(String nazwaksztaltownika);
 
 	Ksztaltownik save(Ksztaltownik ksztaltownik);
 	
-	List<Ksztaltownik> findFirst10ByKsztaltownik(String ksztaltownik);
+	List<Ksztaltownik> findFirst10ByWysokosc(String wysokosc);
 	
 	Page<Ksztaltownik> findAll(Pageable pageable);
 

@@ -22,18 +22,18 @@ public class Kontrakt implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
-	private String nrkontraktu;
+	private String nrKontraktu;
 
 	@Column(nullable = false)
-	private String dataotwarcia;
+	private String dataOtwarcia;
 	
 	@Column(nullable = false)
-	private String terminzakonczenia;
+	private String terminZakonczenia;
 	
-	public Kontrakt(String nrkontraktu, String dataotwarcia, String terminzakonczenia){
-		this.nrkontraktu = nrkontraktu;
-		this.dataotwarcia = dataotwarcia;
-		this.terminzakonczenia = terminzakonczenia;
+	public Kontrakt(String nrKontraktu, String dataOtwarcia){
+		this.nrKontraktu = nrKontraktu;
+		this.dataOtwarcia = dataOtwarcia;
+		//this.terminZakonczenia = terminZakonczenia;
 	}
 
 }

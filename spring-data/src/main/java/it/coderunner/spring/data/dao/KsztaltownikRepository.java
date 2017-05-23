@@ -12,14 +12,11 @@ public interface KsztaltownikRepository extends CrudRepository<Ksztaltownik, Lon
 	
 	Page<Ksztaltownik> findAll(Pageable pageable);
 
-	Page<Klient> findByNameContainingAndKsztaltownikContainingAllIgnoringCase(String name,
-			String ksztaltownik, Pageable pageable);
-
-	Klient findByNameAndKsztaltownikAllIgnoringCase(String name, String ksztaltownik);
+	Ksztaltownik findByNameAllIgnoringCase(String name);
 	
-	List<Klient> findFirst10ByKsztaltownik(String ksztaltownik);
+	List<Ksztaltownik> findFirst10ByWysokosc(String wysokosc);
 	
 	@SuppressWarnings("unchecked")
-	Ksztaltownik save(Klient ksztaltownik);
+	Ksztaltownik save(Ksztaltownik ksztaltownik);
 
 }

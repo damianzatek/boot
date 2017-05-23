@@ -13,43 +13,44 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.coderunner.spring.data.model.Kontrakt;
+import it.coderunner.spring.data.model.Ksztaltownik;
 import it.coderunner.spring.data.service.KontraktService;
+import it.coderunner.spring.data.service.KsztaltownikService;
 
 
 @Controller
 public class KsztaltownikController {
 
 	@Autowired
-	private KontraktService samochodService;
+	private KsztaltownikService ksztaltownikService;
 
-	@GetMapping("/get/samochod/{name}/{type}/{color}")
-	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,
-			@PathVariable String type, @PathVariable String color) {
-		Kontrakt samochod = samochodService.findByNameAndTypeAndColorAllIgnoringCase(name, type, color);
-		return samochod != null ? new ResponseEntity<String>("GET Response : " + samochod, HttpStatus.OK)
-				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
+	@GetMapping("/get/ksztaltownik/{name}")
+	public @ResponseBody ResponseEntity<String> getByName(@PathVariable String name) {
+		Ksztaltownik ksztaltownik = ksztaltownikService.findByNazwaKsztaltownika(name);
+		return ksztaltownik != null ? new ResponseEntity<String>("GET Response : " + ksztaltownik, HttpStatus.OK)
+				: new ResponseEntity<String>("No ksztaltownik found", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/save/samochod/{name}/{type}/{color}")
-	public @ResponseBody ResponseEntity<String> saveSamochod(@PathVariable String name,
-			@PathVariable String type, @PathVariable String color) {
-		Kontrakt samochod = samochodService.save(new Kontrakt(name, type, color));
-		return samochod != null ? new ResponseEntity<String>("GET Response : " + samochod, HttpStatus.OK)
+	@GetMapping("/save/nazwaksztaltownika/{name}/{wys}/{szer}/{grpolki}/{grsrodnika}/{promienmaly}/{promienduzy}")
+	public @ResponseBody ResponseEntity<String> saveKsztaltownik(@PathVariable String name,@PathVariable String wys,@PathVariable String szer,
+			@PathVariable String grpolki, @PathVariable String grsrodnika, @PathVariable String promienmaly, @PathVariable String promienduzy) {
+		Ksztaltownik ksztaltownik = ksztaltownikService.save(new Ksztaltownik(name,wys,szer,grpolki,grsrodnika,promienmaly,promienduzy));
+		return ksztaltownik != null ? new ResponseEntity<String>("GET Response : " + ksztaltownik, HttpStatus.OK)
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{color}")
-	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String color) {
-		List<Kontrakt> samochody = samochodService.findFirst10ByColor(color);
-		samochody.stream().forEach(System.out::println);
-		return samochody != null && !samochody.isEmpty()
-				? new ResponseEntity<String>("GET Response : " + samochody, HttpStatus.OK)
+	@GetMapping("/get/top10/{wysokosc}")
+	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String wysokosc) {
+		List<Ksztaltownik> ksztaltowniki = ksztaltownikService.findFirst10ByWysokosc(wysokosc);
+		ksztaltowniki.stream().forEach(System.out::println);
+		return ksztaltowniki != null && !ksztaltowniki.isEmpty()
+				? new ResponseEntity<String>("GET Response : " + ksztaltowniki, HttpStatus.OK)
 				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/get/allsam/{page}/{size}")
-	public @ResponseBody Page<Kontrakt> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
-		return samochodService.findAll(new PageRequest(page, size));
+	public @ResponseBody Page<Ksztaltownik> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
+		return ksztaltownikService.findAll(new PageRequest(page, size));
 	}
 
 }

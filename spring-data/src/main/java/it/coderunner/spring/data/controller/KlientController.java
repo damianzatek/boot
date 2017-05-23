@@ -13,41 +13,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.coderunner.spring.data.model.Klient;
-import it.coderunner.spring.data.service.KsztaltownikService;
+import it.coderunner.spring.data.service.KlientService;
 
 @Controller
 public class KlientController {
 
 	@Autowired
-	private KsztaltownikService cityService;
+	private KlientService klientService;
 
-	@GetMapping("/get/city/{name}/{country}")
-	public @ResponseBody ResponseEntity<String> getByNameAndCountry(@PathVariable String name,
-			@PathVariable String country) {
-		Klient city = cityService.findByNameAndCountryAllIgnoringCase(name, country);
-		return city != null ? new ResponseEntity<String>("GET Response : " + city, HttpStatus.OK)
-				: new ResponseEntity<String>("No city found", HttpStatus.NOT_FOUND);
+	@GetMapping("/get/klient/{name}")
+	public @ResponseBody ResponseEntity<String> getByName(@PathVariable String name) {
+		List<Klient> klient = klientService.findByName(name);
+		return klient != null ? new ResponseEntity<String>("GET Response : " + klient, HttpStatus.OK)
+				: new ResponseEntity<String>("Nie znaleziono klienta", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/save/city/{name}/{country}")
-	public @ResponseBody ResponseEntity<String> saveCity(@PathVariable String name, @PathVariable String country) {
-		Klient city = cityService.save(new Klient(name, country));
-		return city != null ? new ResponseEntity<String>("GET Response : " + city, HttpStatus.OK)
+	@GetMapping("/save/klient/{login}/{haslo}/{imie}/{nazwisko}/{email}")
+	public @ResponseBody ResponseEntity<String> saveKlient(@PathVariable String login, @PathVariable String haslo, @PathVariable String imie, @PathVariable String nazwisko, @PathVariable String email) {
+		Klient klient = klientService.save(new Klient(login,haslo,imie,nazwisko,email));
+		return klient != null ? new ResponseEntity<String>("GET Response : " + klient, HttpStatus.OK)
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{country}")
-	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String country) {
-		List<Klient> cities = cityService.findFirst10ByCountry(country);
-		cities.stream().forEach(System.out::println);
-		return cities != null && !cities.isEmpty()
-				? new ResponseEntity<String>("GET Response : " + cities, HttpStatus.OK)
+	@GetMapping("/get/top10/{name}")
+	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String name) {
+		List<Klient> klients = klientService.findFirst10ByKlient(name);
+		klients.stream().forEach(System.out::println);
+		return klients != null && !klients.isEmpty()
+				? new ResponseEntity<String>("GET Response : " + klients, HttpStatus.OK)
 				: new ResponseEntity<String>("No city found", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/get/all/{page}/{size}")
 	public @ResponseBody Page<Klient> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
-		return cityService.findAll(new PageRequest(page, size));
+		return klientService.findAll(new PageRequest(page, size));
 	}
 
 }

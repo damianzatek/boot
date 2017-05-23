@@ -10,7 +10,7 @@ import it.coderunner.spring.data.model.Kontrakt;
 
 public interface KontraktService extends Serializable{
 
-	List<Kontrakt> findByName(String name);
+	Kontrakt findByName(String name);
 
 	Kontrakt save(Kontrakt kontrakt);
 	

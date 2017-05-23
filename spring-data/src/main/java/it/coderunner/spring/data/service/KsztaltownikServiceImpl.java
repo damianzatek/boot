@@ -20,8 +20,8 @@ public class KsztaltownikServiceImpl implements KsztaltownikService{
 	private KsztaltownikRepository ksztaltownikRepository;
 
 	@Override
-	public Ksztaltownik findByNazwaksztaltownikaAndKlientAllIgnoringCase(String nazwaksztaltownika, String klient) {
-		return ksztaltownikRepository.findByNazwaksztaltownikaAndKlientAllIgnoringCase(nazwaksztaltownika, klient) ;
+	public Ksztaltownik findByNazwaKsztaltownika(String nazwaksztaltownika) {
+		return ksztaltownikRepository.findByNameAllIgnoringCase(nazwaksztaltownika) ;
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class KsztaltownikServiceImpl implements KsztaltownikService{
 	}
 
 	@Override
-	public List<Ksztaltownik> findFirst10ByKsztaltownik(String ksztaltownik) {
-		return ksztaltownikRepository.findFirst10ByKsztaltownik(ksztaltownik);
+	public List<Ksztaltownik> findFirst10ByWysokosc(String wysokosc) {
+		return ksztaltownikRepository.findFirst10ByWysokosc(wysokosc);
 	}
 
 	@Override

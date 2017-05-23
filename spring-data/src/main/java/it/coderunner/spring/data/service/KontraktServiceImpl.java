@@ -20,7 +20,7 @@ public class KontraktServiceImpl implements KontraktService{
 	private KontraktRepository kontraktRepository;
 
 	@Override
-	public List<Kontrakt> findByName(String name) {
+	public Kontrakt findByName(String name) {
 		return kontraktRepository.findByName(name) ;
 	}
 

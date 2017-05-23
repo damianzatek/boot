@@ -22,34 +22,34 @@ public class Ksztaltownik implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
-	private String nazwaksztaltownika;
+	private String nazwaKsztaltownika;
 
 	@Column(nullable = false)
-	private String wysokoscksztaltownika;
+	private String wysokoscKsztaltownika;
 	
 	@Column(nullable = false)
-	private String szerokoscksztaltownika;
+	private String szerokoscKsztaltownika;
 	
 	@Column(nullable = false)
-	private String gruboscpolki;
+	private String gruboscPolki;
 	
 	@Column(nullable = false)
-	private String gruboscsrodnika;
+	private String gruboscSrodnika;
 	
 	@Column(nullable = false)
-	private String promienzaokragleniaduzy;
+	private String promienZaokragleniaDuzy;
 	
 	@Column(nullable = false)
-	private String promienzaokragleniamaly;
+	private String promienZaokragleniaMaly;
 	
-	public Ksztaltownik(String nazwaksztaltownika, String wysokoscksztaltownika, String szerokoscksztaltownika, String gruboscpolki, String gruboscsrodnika, String promienzaokragleniaduzy, String promienzaokragleniamaly){
-		this.nazwaksztaltownika = nazwaksztaltownika;
-		this.wysokoscksztaltownika = wysokoscksztaltownika;
-		this.szerokoscksztaltownika = szerokoscksztaltownika;
-		this.gruboscpolki = gruboscpolki;
-		this.gruboscsrodnika = gruboscsrodnika;
-		this.promienzaokragleniaduzy = promienzaokragleniaduzy;
-		this.promienzaokragleniamaly = promienzaokragleniamaly;
+	public Ksztaltownik(String nazwaKsztaltownika, String wysokoscKsztaltownika, String szerokoscKsztaltownika, String gruboscPolki, String gruboscSrodnika, String promienZaokragleniaDuzy, String promienZaokragleniaMaly){
+		this.nazwaKsztaltownika = nazwaKsztaltownika;
+		this.wysokoscKsztaltownika = wysokoscKsztaltownika;
+		this.szerokoscKsztaltownika = szerokoscKsztaltownika;
+		this.gruboscPolki = gruboscPolki;
+		this.gruboscSrodnika = gruboscSrodnika;
+		this.promienZaokragleniaDuzy = promienZaokragleniaDuzy;
+		this.promienZaokragleniaMaly = promienZaokragleniaMaly;
 	}
 
 }

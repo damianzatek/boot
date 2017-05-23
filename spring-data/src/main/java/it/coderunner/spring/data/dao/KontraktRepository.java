@@ -6,16 +6,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
+import it.coderunner.spring.data.model.Klient;
 import it.coderunner.spring.data.model.Kontrakt;
 
 public interface KontraktRepository extends CrudRepository<Kontrakt, Long>{
 	
 	Page<Kontrakt> findAll(Pageable pageable);
 
-	Page<Kontrakt> findByNameContainingAndTypeContainingAndColorContainingAllIgnoringCase(String name,
-			String type,String color, Pageable pageable);
 
-	List<Kontrakt> findByName(String name);
+	Kontrakt findByName(String name);
 	
 	List<Kontrakt> findFirst10ByKlient(String klient);
 	

@@ -21,7 +21,7 @@ public class KsztaltownikServiceImpl implements KsztaltownikService{
 
 	@Override
 	public Ksztaltownik findByNazwaKsztaltownika(String nazwaksztaltownika) {
-		return ksztaltownikRepository.findByNameAllIgnoringCase(nazwaksztaltownika) ;
+		return ksztaltownikRepository.findByNazwaKsztaltownikaAllIgnoringCase(nazwaksztaltownika) ;
 	}
 
 	@Override

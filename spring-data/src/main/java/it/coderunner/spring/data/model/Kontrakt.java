@@ -27,7 +27,7 @@ public class Kontrakt implements Serializable {
 	@Column(nullable = false)
 	private String dataOtwarcia;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String terminZakonczenia;
 	
 	public Kontrakt(String nrKontraktu, String dataOtwarcia){

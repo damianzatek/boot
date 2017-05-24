@@ -35,7 +35,7 @@ public class KlientController {
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{name}")
+	@GetMapping("/get/klient/top10/{name}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String name) {
 		List<Klient> klients = klientService.findFirst10ByKlient(name);
 		klients.stream().forEach(System.out::println);
@@ -44,7 +44,7 @@ public class KlientController {
 				: new ResponseEntity<String>("No city found", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/all/{page}/{size}")
+	@GetMapping("/get/klient/all/{page}/{size}")
 	public @ResponseBody Page<Klient> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return klientService.findAll(new PageRequest(page, size));
 	}

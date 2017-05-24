@@ -37,16 +37,16 @@ public class KontaktController {
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{nameKlienta}")
+	@GetMapping("/get/kontrakt/top10/{nameKlienta}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String nameKlienta) {
 		List<Kontrakt> kontrakty = kontraktService.findFirst10ByKlient(nameKlienta);
 		 kontrakty.stream().forEach(System.out::println);
 		return  kontrakty != null && ! kontrakty.isEmpty()
 				? new ResponseEntity<String>("GET Response : " +  kontrakty, HttpStatus.OK)
-				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
+				: new ResponseEntity<String>("Nie znaleziono kontraktu", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/allsam/{page}/{size}")
+	@GetMapping("/get/kontrakt/{page}/{size}")
 	public @ResponseBody Page<Kontrakt> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return kontraktService.findAll(new PageRequest(page, size));
 	}

@@ -14,9 +14,9 @@ public interface KlientRepository extends CrudRepository<Klient, Long>{
 	//Page<Klient> findByNameContainingAllIgnoringCase(String name,
 	//		String type,String color, Pageable pageable);
 
-	List<Klient> findByName(String name);
+	List<Klient> findByNazwisko(String name);
 	
-	List<Klient> findFirst10ByKlient(String name);
+	List<Klient> findFirst10ByNazwisko(String name);
 	
 	@SuppressWarnings("unchecked")
 	Klient save(Klient klient);

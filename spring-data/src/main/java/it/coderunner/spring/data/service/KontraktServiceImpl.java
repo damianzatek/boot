@@ -20,8 +20,8 @@ public class KontraktServiceImpl implements KontraktService{
 	private KontraktRepository kontraktRepository;
 
 	@Override
-	public Kontrakt findByName(String name) {
-		return kontraktRepository.findByName(name) ;
+	public Kontrakt findByName(String nrKontraktu) {
+		return kontraktRepository.findByNrKontraktu(nrKontraktu) ;
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class KontraktServiceImpl implements KontraktService{
 	}
 
 	@Override
-	public List<Kontrakt> findFirst10ByKlient(String klient) {
-		return kontraktRepository.findFirst10ByKlient(klient);
+	public List<Kontrakt> findFirst10ByKlient(String dataOtwarcia) {
+		return kontraktRepository.findFirst10ByDataOtwarcia(dataOtwarcia);
 	}
 
 	@Override

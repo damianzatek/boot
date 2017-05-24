@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
-import it.coderunner.spring.data.model.Klient;
 import it.coderunner.spring.data.model.Kontrakt;
 
 public interface KontraktRepository extends CrudRepository<Kontrakt, Long>{
@@ -14,9 +13,9 @@ public interface KontraktRepository extends CrudRepository<Kontrakt, Long>{
 	Page<Kontrakt> findAll(Pageable pageable);
 
 
-	Kontrakt findByName(String name);
+	Kontrakt findByNrKontraktu(String nrKontraktu);
 	
-	List<Kontrakt> findFirst10ByKlient(String klient);
+	List<Kontrakt> findFirst10ByDataOtwarcia(String dataOtwarcia);
 	
 	@SuppressWarnings("unchecked")
 	Kontrakt save(Kontrakt kontrakt);

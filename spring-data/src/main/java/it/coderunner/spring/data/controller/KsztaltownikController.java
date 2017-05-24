@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.coderunner.spring.data.model.Kontrakt;
 import it.coderunner.spring.data.model.Ksztaltownik;
-import it.coderunner.spring.data.service.KontraktService;
 import it.coderunner.spring.data.service.KsztaltownikService;
 
 
@@ -48,7 +46,7 @@ public class KsztaltownikController {
 				: new ResponseEntity<String>("No samochod found", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/allsam/{page}/{size}")
+	@GetMapping("/get/ksztaltownik/{page}/{size}")
 	public @ResponseBody Page<Ksztaltownik> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return ksztaltownikService.findAll(new PageRequest(page, size));
 	}

@@ -21,7 +21,7 @@ public class KlientServiceImpl implements KlientService{
 
 	@Override
 	public List<Klient> findByName(String name) {
-		return klientRepository.findByName(name) ;
+		return klientRepository.findByNazwisko(name) ;
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class KlientServiceImpl implements KlientService{
 
 	@Override
 	public List<Klient> findFirst10ByKlient(String klient) {
-		return klientRepository.findFirst10ByKlient(klient);
+		return klientRepository.findFirst10ByNazwisko(klient);
 	}
 
 	@Override

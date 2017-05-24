@@ -25,7 +25,7 @@ public class Ksztaltownik implements Serializable {
 	private String nazwaKsztaltownika;
 
 	@Column(nullable = false)
-	private String wysokoscKsztaltownika;
+	private String wysokosc;
 	
 	@Column(nullable = false)
 	private String szerokoscKsztaltownika;
@@ -42,9 +42,9 @@ public class Ksztaltownik implements Serializable {
 	@Column(nullable = false)
 	private String promienZaokragleniaMaly;
 	
-	public Ksztaltownik(String nazwaKsztaltownika, String wysokoscKsztaltownika, String szerokoscKsztaltownika, String gruboscPolki, String gruboscSrodnika, String promienZaokragleniaDuzy, String promienZaokragleniaMaly){
+	public Ksztaltownik(String nazwaKsztaltownika, String wysokosc, String szerokoscKsztaltownika, String gruboscPolki, String gruboscSrodnika, String promienZaokragleniaDuzy, String promienZaokragleniaMaly){
 		this.nazwaKsztaltownika = nazwaKsztaltownika;
-		this.wysokoscKsztaltownika = wysokoscKsztaltownika;
+		this.wysokosc = wysokosc;
 		this.szerokoscKsztaltownika = szerokoscKsztaltownika;
 		this.gruboscPolki = gruboscPolki;
 		this.gruboscSrodnika = gruboscSrodnika;
